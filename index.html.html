@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pattern Portal</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #1a237e;
+      background: linear-gradient(150deg, #e3f0fc 50%, #3566a8 100%);
+      min-height: 100vh;
+    }
+    .header {
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 17px 32px 8px 32px;
+    }
+    .header .name {
+      font-size: 8px;
+      font-weight: 500;
+      color: #174a7c;
+      margin-top: 2px;
+      letter-spacing: 0.4px;
+    }
+    .header .pattern {
+      flex: 1;
+      text-align: center;
+      font-size: 2.1rem;
+      letter-spacing: 2px;
+      font-weight: bold;
+      color: #2b59a5;
+      background: linear-gradient(90deg, #e0e8f6 60%, #b1cefc 100%);
+      border-radius: 8px;
+      margin-left: 58px;
+      margin-right: 65px;
+      padding: 3px 0 3px 0;
+      box-shadow: 0 2px 6px rgba(44,60,90,.08);
+    }
+    .center-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 70px); /* adjust for header */
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .portal-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 80px;
+    }
+    .col-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    .portal-btn {
+      background: linear-gradient(120deg, #e3f2fd 65%, #1565c0 100%);
+      color: #11407b;
+      min-width: 220px;
+      padding: 38px 22px;
+      font-size: 1.18rem;
+      font-weight: 500;
+      text-align: center;
+      box-shadow: 0 2px 14px rgba(33,60,138,0.07);
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.18s, background 0.14s;
+      text-decoration: none;
+      margin-bottom: 3px;
+    }
+    .portal-btn:hover, .portal-btn:focus {
+      background: linear-gradient(120deg, #b3ddf8 60%, #254280 100%);
+      color: #fff;
+      box-shadow: 0 4px 30px rgba(33,60,138,0.13);
+      transform: translateY(-3px) scale(1.033);
+    }
+    .portal-btn.disabled, .portal-btn[disabled] {
+      background: #e3e6ea;
+      color: #888ca7;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    @media (max-width: 900px) {
+      .portal-grid {gap:36px;}
+      .header .pattern {margin:0;}
+    }
+    @media (max-width: 700px) {
+      .center-content {min-height: calc(100vh - 60px);}
+      .portal-grid {flex-direction:column; gap:32px; align-items:center;}
+      .col-stack {width:100%; align-items:center;}
+      .header {flex-direction:column; align-items: flex-start; padding:13px 9px;}
+      .header .pattern {margin:0;}
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="name">Siddhesh Gampawar</div>
+    <div class="pattern">Pattern</div>
+    <div style="width:110px;"></div>
+  </div>
+  <div class="center-content">
+    <div class="portal-grid">
+      <!-- Left column (top to bottom) -->
+      <div class="col-stack">
+        <a href="https://colab.research.google.com/drive/1zaKq8gZo1gG26yOj0s0N7u3zNtdtkbcA?usp=sharing" target="_blank" class="portal-btn">
+          SEO Colour
+        </a>
+        <a href="https://colab.research.google.com/drive/1jX7K-IGFdC5r8F2Pn4dqAc-Xrz_rnekA?usp=sharing" target="_blank" class="portal-btn">
+          Image QC
+        </a>
+        <a href="#" class="portal-btn">PXM</a>
+      </div>
+      <!-- Right column (top to bottom) -->
+      <div class="col-stack">
+        <a href="https://colab.research.google.com/drive/145QPjai0SDD7FdkzG13BBwOsziYSI4uF" target="_blank" class="portal-btn">
+          Image Stack
+        </a>
+        <a href="https://colab.research.google.com/drive/1xwK-aCgkqWk61BfglR0YNL3yF5zIyE0t?usp=sharing" target="_blank" class="portal-btn">
+          Shelf Create Master ID
+        </a>
+        <a href="#" class="portal-btn">CLR</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
