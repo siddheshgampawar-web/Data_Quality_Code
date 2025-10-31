@@ -42,31 +42,116 @@
       padding: 3px 0 3px 0;
       box-shadow: 0 2px 6px rgba(44,60,90,.08);
     }
-    .center-content {
+    .container-main {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: calc(100vh - 70px); /* adjust for header */
-      width: 100%;
+      height: calc(100vh - 70px);
       box-sizing: border-box;
-    }
-    .portal-grid {
-      display: flex;
       justify-content: center;
       align-items: center;
-      gap: 80px;
+      margin-top: 0;
+      width: 100%;
     }
-    .col-stack {
+    .video-trainings-panel {
       display: flex;
       flex-direction: column;
-      gap: 36px;
+      align-items: flex-start;
+      min-width: 220px;
+      margin-right: 34px;
+      margin-left: 20px;
+      margin-top: -30px;
+    }
+    .video-btn {
+      background: linear-gradient(120deg, #e3f2fd 65%, #1976d2 100%);
+      color: #174a7c;
+      min-width: 220px;
+      font-size: 1.11rem;
+      font-weight: 510;
+      text-align: left;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+      padding: 13px 28px;
+      box-shadow: 0 2px 14px rgba(33,60,138,0.07);
+      margin-bottom: 4px;
+      margin-top: 2px;
+      outline: none;
+      transition: background 0.12s, color 0.14s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      user-select: none;
+    }
+    .video-btn:hover,
+    .video-btn:focus {
+      background: linear-gradient(120deg, #b3ddf8 60%, #254280 100%);
+      color: #fff;
+    }
+    .video-arrow {
+      font-size: 1.2em;
+      margin-left: auto;
+      transition: transform 0.2s;
+    }
+    .video-submenu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 3px;
+      margin-bottom: 4px;
+      margin-left: 14px;
+      gap: 5px;
+      animation: slideDown 0.26s;
+      background: #eef6fc;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 12px rgba(33,60,138,0.06);
+      padding: 11px 0 10px 5px;
+    }
+    .video-submenu.open {
+      display: flex;
+    }
+    .submenu-link {
+      font-size: 0.98rem;
+      background: none;
+      border: none;
+      color: #1a237e;
+      text-align: left;
+      padding: 8px 19px 8px 7px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.13s,color 0.14s;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      display: block;
+      width: 95%;
+    }
+    .submenu-link:hover, .submenu-link:focus {
+      background: #bbdefb;
+      color: #0f234c;
+    }
+    /* For the main portal grid */
+    .portal-table {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+    }
+    .portal-row {
+      display: flex;
+      flex-direction: row;
+      gap: 46px;
+      justify-content: center;
+      align-items: center;
     }
     .portal-btn {
       background: linear-gradient(120deg, #e3f2fd 65%, #1565c0 100%);
       color: #11407b;
-      min-width: 220px;
-      padding: 38px 22px;
-      font-size: 1.18rem;
+      min-width: 205px;
+      padding: 36px 22px;
+      font-size: 1.13rem;
       font-weight: 500;
       text-align: center;
       box-shadow: 0 2px 14px rgba(33,60,138,0.07);
@@ -76,6 +161,8 @@
       transition: transform 0.12s, box-shadow 0.18s, background 0.14s;
       text-decoration: none;
       margin-bottom: 3px;
+      margin-top: 2px;
+      display: inline-block;
     }
     .portal-btn:hover, .portal-btn:focus {
       background: linear-gradient(120deg, #b3ddf8 60%, #254280 100%);
@@ -83,22 +170,30 @@
       box-shadow: 0 4px 30px rgba(33,60,138,0.13);
       transform: translateY(-3px) scale(1.033);
     }
-    .portal-btn.disabled, .portal-btn[disabled] {
-      background: #e3e6ea;
-      color: #888ca7;
-      pointer-events: none;
-      opacity: 0.7;
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-16px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 1200px) {
+      .portal-btn {min-width: 170px; font-size: 1.01rem;}
+      .portal-row {gap:23px;}
+      .video-btn, .video-trainings-panel {min-width:140px;}
     }
     @media (max-width: 900px) {
-      .portal-grid {gap:36px;}
+      .portal-row {gap:12px;}
       .header .pattern {margin:0;}
+      .container-main {zoom:0.97;}
+      .video-btn, .video-trainings-panel {margin-left: 3vw;}
     }
     @media (max-width: 700px) {
-      .center-content {min-height: calc(100vh - 60px);}
-      .portal-grid {flex-direction:column; gap:32px; align-items:center;}
-      .col-stack {width:100%; align-items:center;}
+      .container-main {height:auto; margin-bottom:30px;}
+      .portal-table {gap:13px;}
+      .portal-row {flex-direction:column; gap: 18px;}
+      .portal-btn {min-width:135px; width:94vw;}
       .header {flex-direction:column; align-items: flex-start; padding:13px 9px;}
       .header .pattern {margin:0;}
+      .video-btn {min-width:98vw; width:98vw;}
+      .video-trainings-panel {margin-left:7px;}
     }
   </style>
 </head>
@@ -108,29 +203,71 @@
     <div class="pattern">Pattern</div>
     <div style="width:110px;"></div>
   </div>
-  <div class="center-content">
-    <div class="portal-grid">
-      <!-- Left column (top to bottom) -->
-      <div class="col-stack">
+  <div class="container-main">
+    <!-- VIDEO TRAININGS PANEL -->
+    <div class="video-trainings-panel">
+      <button class="video-btn" id="videoTrainingsBtn">
+        Video Trainings
+        <span class="video-arrow" id="videoArrow">&#9662;</span>
+      </button>
+      <div class="video-submenu" id="videoSubmenu">
+        <a class="submenu-link" href="https://drive.google.com/file/d/1HnKvF05xzdnigUUVnJ_aLT8BrxGUvm5D/view?usp=drive_link" target="_blank">1. Image Stack Automation</a>
+        <a class="submenu-link" href="https://drive.google.com/file/d/1vWswpGNxALWzFnfatBHVmjg7t5F-Cp3q/view?usp=drive_link" target="_blank">2. Image Quality Check Automation</a>
+        <a class="submenu-link" href="https://drive.google.com/file/d/1au1CqQHMcF19ba88hyTGzrnlYoEcLH6b/view?usp=drive_link" target="_blank">3. PXM Automation</a>
+        <a class="submenu-link" href="https://drive.google.com/file/d/1j17eCQGp5VF8LuBciZu2VBQwklgWuI_X/view?usp=drive_link" target="_blank">4. PC/ MF analysis Automation</a>
+        <a class="submenu-link" href="https://drive.google.com/drive/u/0/folders/1tVxzHhm04nNwQZm1_yjj3SCO9XoPy6Pk" target="_blank">5. Other Training Video</a>
+      </div>
+    </div>
+    <!-- PORTAL GRID (link buttons) -->
+    <div class="portal-table">
+      <div class="portal-row">
         <a href="https://colab.research.google.com/drive/1zaKq8gZo1gG26yOj0s0N7u3zNtdtkbcA?usp=sharing" target="_blank" class="portal-btn">
           SEO Colour
         </a>
         <a href="https://colab.research.google.com/drive/1jX7K-IGFdC5r8F2Pn4dqAc-Xrz_rnekA?usp=sharing" target="_blank" class="portal-btn">
           Image QC
         </a>
-        <a href="#" class="portal-btn">PXM</a>
+        <a href="https://colab.research.google.com/drive/1XVFrQ_ADmsIOOEW4sg8KEmEQVmOmmmVD?usp=sharing" target="_blank" class="portal-btn">
+          PXM
+        </a>
       </div>
-      <!-- Right column (top to bottom) -->
-      <div class="col-stack">
+      <div class="portal-row">
         <a href="https://colab.research.google.com/drive/145QPjai0SDD7FdkzG13BBwOsziYSI4uF" target="_blank" class="portal-btn">
           Image Stack
         </a>
         <a href="https://colab.research.google.com/drive/1xwK-aCgkqWk61BfglR0YNL3yF5zIyE0t?usp=sharing" target="_blank" class="portal-btn">
           Shelf Create Master ID
         </a>
-        <a href="#" class="portal-btn">CLR</a>
+        <a href="https://colab.research.google.com/drive/13OTrx3t3LTXFJZk0vnkBcSbarXZRuk-M?usp=sharing" target="_blank" class="portal-btn">
+          CLR
+        </a>
+      </div>
+      <div class="portal-row">
+        <a href="https://colab.research.google.com/drive/1xQlMaVQBwdQBuhfbtGb1rdakIhm8VxKR?usp=sharing" target="_blank" class="portal-btn">
+          PC/Shelf Update
+        </a>
+        <a href="https://colab.research.google.com/drive/1oca5Dpk4W5ztFVzAWbail7zuXly0q6bb?usp=sharing" target="_blank" class="portal-btn">
+          Walmart DP SEO Scrap
+        </a>
       </div>
     </div>
   </div>
+  <script>
+    // Video training button toggle logic
+    const videoBtn = document.getElementById('videoTrainingsBtn');
+    const videoSubmenu = document.getElementById('videoSubmenu');
+    const arrow = document.getElementById("videoArrow");
+    videoBtn.addEventListener('click', function() {
+      videoSubmenu.classList.toggle('open');
+      arrow.style.transform = videoSubmenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+    });
+    // (Optional) close the submenu if you click outside
+    window.addEventListener('click', function(event){
+      if (!videoBtn.contains(event.target) && !videoSubmenu.contains(event.target)) {
+        videoSubmenu.classList.remove('open');
+        arrow.style.transform = 'rotate(0)';
+      }
+    });
+  </script>
 </body>
 </html>
